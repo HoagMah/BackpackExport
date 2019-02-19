@@ -7,6 +7,10 @@
 
 This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
 
+## Requires
+1. https://github.com/barryvdh/laravel-dompdf
+2. https://github.com/Maatwebsite/Laravel-Excel
+
 ## Installation
 
 Via Composer
@@ -14,8 +18,18 @@ Via Composer
 ``` bash
 $ composer require hoagmah/backpackexport
 ```
+## Setup
+``` 
+$ php artisan vendor:publish --provider=HoagMah\\BackpackExport\\BackpackExportServiceProvider
+
+```
 
 ## Usage
+Each crud controller in Laravel backpack:
+1. Extends HoagMah\BackpackExport\Http\Controllers\CrudController instead of Backpack\CRUD\app\Http\Controllers\CrudController
+2. Use trait HoagMah\Traits\Export in curd controller
+3. Add button export_excel and export_pdf in list
+4. Add route /export-excel to action exportExcel() and /export-pdf to exportPdf() in custom.php
 
 ## Change log
 
